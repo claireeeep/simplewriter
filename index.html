@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="avatar.jpg" sizes="16x16">
+<link rel="icon" type="image/png" href="avatar.jpg" sizes="32x32">
+<link rel="icon" type="image/png" href="avatar.jpg" sizes="96x96">
+<head>
+<title>Simple Writer</title>
+<style>
+ * {
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+
+	background: #f4f4f4;
+	font-family: 'Lato', sans-serif;
+}
+#container {
+	width:100%;
+	min-height:100%;
+	background: #f4f4f4;
+}
+
+
+
+
+
+ul {
+	text-align:center;
+	background: #e4e4e4;
+	margin:0;
+	height:45px;
+	padding:0;
+	list-style-type:none;
+	text-decoration: none;
+	cursor: default;
+}
+
+li {
+	display:inline;
+	background: #e4e4e4;
+	text-align: center;
+	height:40px;
+	padding: 12px 10px 14px 10px;
+	line-height:40px;
+	font-size: 15px;
+	margin:0;
+	width:15px;
+}
+li:hover {
+	background: #d4d4d4;
+	}
+#textup {
+	font-size:20px;
+	text-decoration:underline;
+	padding: 8px 10px 13px 10px;
+}
+#textdown {
+	font-size: 10px;
+	text-decoration:underline;
+	padding: 17px 10px 15px 10px;
+	
+}	
+li#homez {
+padding:0;}
+	
+	
+	
+	
+article {
+	padding: 0 20px 0 20px;
+	}
+#title {
+border-bottom: 1px solid #e4e4e4;
+line-height: 50px;
+font-size: 32px;
+}
+#conten {
+    line-height: 30px;
+    margin-top: 22px;
+    min-height: 90%;
+    display: block;
+	padding: 0 20px 0 20px;
+	font-size:15px;
+}
+article:focus {
+	outline:none;
+	}
+p:focus {
+outline: none;}
+#wordcount {
+    position:fixed;
+	bottom:0;
+	right:0;
+	padding: 5px;
+	background: #e4e4e4;
+	border: 0px solid black;
+	border-radius: 3px 0 0 0;
+	cursor:default;
+}
+#wordcount:hover {
+	background: #d4d4d4;
+	}
+span#namezzz{
+float:left;
+background: #e4e4e4;
+}
+a {
+text-decoration: none;
+background: #e4e4e4;
+color:black;
+padding: 12px 10px 14px 10px;
+}
+a:hover {
+background: #d4d4d4;
+   
+}
+span#namezzz li:first-child {
+margin:0 0 0 20px;}
+</style>
+
+</head>
+<body>
+<div id="container">
+<ul>
+
+<li id="textup" onclick="changeSize(1)">A</li>
+	<li id="textdown" onclick="changeSize(-1)">A</li>
+	<span id="namezzz"><li>Simple Writer</li>
+	<li id="homez"><a href="https://clairepurslow.github.io">Home</a></li>
+	<span>
+</ul>
+<div id="content">
+<article contenteditable="true" id="title" onkeyup="wordCount()" onload="wordCount()">Title goes here!</article>
+<p contenteditable="true" id="conten" onkeyup="wordCount()" onload="wordCount()">Write here. Seriously, try it.</p>
+</div>
+<div id="wordcount" >Word Count: 5</div>
+</div>
+<script>
+function changeSize(n) {
+    var el = document.getElementById("conten");
+    var style = window.getComputedStyle(el, null).getPropertyValue("font-size");
+    var fontSize = parseFloat(style);
+// now you have a proper float for the font size (yes, it can be a float, not just an integer)
+    el.style.fontSize = (fontSize + n) + "px";
+}
+function wordCount() {
+	var el = document.getElementById("conten").innerHTML;
+	var ef = el.split(" ");
+	var eg;
+	if (ef[0].length == 0) {
+		eg = 0;
+	}
+	else {
+	eg = ef.length;
+	}
+	document.getElementById("wordcount").innerHTML = "Word Count: " + eg;
+	}
+</script>
+</body>
+</html>
